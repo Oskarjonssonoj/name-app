@@ -1,3 +1,5 @@
+/* Defualt settings */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,6 +10,8 @@ body {
     background-color: gray;
     font-family: 'Open Sans Condensed', sans-serif;
 }
+
+/* Overall Design */
 
 .container {
     max-width: 800px;
@@ -61,6 +65,9 @@ button {
 #specDaySearch {
     margin-bottom: 1.7rem;
 }
+
+
+/* Added content after search */
 
 #content {
     text-align: center;
