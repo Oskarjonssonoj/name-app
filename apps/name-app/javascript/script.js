@@ -1,52 +1,58 @@
+// Getting references for our first form
 const formSearch = document.querySelector("#formSearch");
-
 const nameEl = document.querySelector("#name-search");
-
 const countryEl = document.querySelector("#country-search");
 
+
+// Getting references for our second form
+const specDaySearch = document.querySelector("#specDaySearch");
+const countrySearch = document.querySelector("#countrySearch");
+const monthSearch = document.querySelector("#monthSearch");
+const daySearch = document.querySelector("#daySearch");
+
+
+// Getting references to the empty div 
 const content = document.querySelector("#content");
 
-// formSearch.addEventListener('sumbit', e => {
-//     e.preventDefault();
+// Calling our function when submitting values
+formSearch.addEventListener('submit', e => {
+    e.preventDefault();
 
-//     const name = nameEl.value;
-//     const country = countryEl.value;
-
-//     const urlSearch = `https://api.abalin.net/getdate?name=${name}&country=${country}`;
-
-//     const getNames = async () => {
-//         const response = await fetch(urlSearch);
-
-//         const searchResult = await response.json();
-
-//         searchResult.results.forEach((data) => {
-//             output += `<p>${data.name}</p>
-//             <p>${data.month}/${data.day}</p>`;
-
-//             content.innerHTML = output;  
-//         });
-//     };
-//     getNames()  
-//     .catch(err => {
-//         console.error("Something went very wrong! Error was:", err);
-//     });
-// });
- 
-searchBtn.addEventListener('click', async function() {
- 
     const name = nameEl.value;
     const country = countryEl.value;
- 
-    const response = await fetch(`https://api.abalin.net/getdate?name=${name}&country=${country}`);
-    
-    const parse = await response.json();
- 
-    const content = document.querySelector("#content");
-    let output = ""
- 
-    parse.results.forEach((data) => {
-        output += `<p>${data.name}</p>
-        <p>${data.month}/${data.day}</p>`;
-     });
-    content.innerHTML = output;  
+
+    getNames(name, country)
+        .then(searchResult => {
+            let output = ""
+            searchResult.results.forEach((data) => {
+                output = `
+                <h2>Date</h2>
+                    <p class="date">${data.day}/${data.month}</p>
+                <h2>Name/names</h2>
+                    <p>${data.name}</p>`;   
+                }); 
+            content.innerHTML = output;  
+        })
+});
+
+// Calling our function when submitting values
+specDaySearch.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const countryCode = countrySearch.value;
+    const month = monthSearch.value;
+    const day = daySearch.value;
+
+    getDate(countryCode, month, day)
+        .then(data => {
+            let output = ""
+            data.data.forEach(item => {
+                const countryCodeAPI = countrySearch.value;
+                output = `
+                <h2>Name/names</h2>
+                    <p>${item.namedays[countryCodeAPI]}</p>`;   
+                }); 
+            content.innerHTML = output;  
+            console.log(data);
+        })
 });

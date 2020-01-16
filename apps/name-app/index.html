@@ -13,19 +13,29 @@
 <body>
     <div class="container">
         <div class="card-body">
-            <h1 class="card-title">When's your name's birthday?</h1>
+            <div class="body">
+            <h1 class="card-title">Find out your name's birthday?</h1>
                 <form action="" id="formSearch" autocomplete="off">
                     <input id="name-search" placeholder="Name...">
                     <input id="country-search" placeholder="Country code...">
-                    <button id="search" class="btn btn-secondary">Enter</button>
+                    <button id="search" class="btn btn-secondary">Search</button>
                 </form>
-            <div id="content">
-                    
+
+                <form action="" id="specDaySearch" autocomplete="off">
+                    <input id="countrySearch" placeholder="Country...">
+                    <input id="monthSearch" placeholder="Month...">
+                    <input id="daySearch" placeholder="Day...">
+                    <button id="dsearch" class="btn btn-secondary">Search</button>
+                </form>
             </div>
         </div>
+                <div id="content">
+                    
+                </div>
     </div>
 
-    <script src="javascript/script.js"></script>
     <script src="javascript/app.js"></script>
+    <script src="javascript/script.js"></script>
+    
 </body>
 </html>
