@@ -58,6 +58,5 @@ specDaySearch.addEventListener('submit', e => {
                     <p class="names">${item.namedays[countryCodeAPI]}</p>`;   
                 }); 
             content.innerHTML = output;  
-            console.log(data);
         })
 });
