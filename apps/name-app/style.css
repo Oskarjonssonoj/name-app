@@ -16,7 +16,7 @@ body {
 }
 
 .card-body {
-    background-color: wheat;
+    background-color: rgba(255, 255, 255, 0.76);
     height: 330px;
     max-width: 520px;
     border-radius: 0.5rem;
@@ -60,7 +60,7 @@ button {
 
 #content {
     text-align: center;
-    background-color: wheat;
+    background-color: rgba(255, 255, 255, 0.76);
     border-radius: 0.5rem;
     max-width: 520px;
     margin-left: auto;
