@@ -14,6 +14,7 @@ const daySearch = document.querySelector("#daySearch");
 // Getting references to the empty div 
 const content = document.querySelector("#content");
 
+
 // Calling our function when submitting values
 formSearch.addEventListener('submit', e => {
     e.preventDefault();
@@ -23,15 +24,19 @@ formSearch.addEventListener('submit', e => {
 
     getNames(name, country)
         .then(searchResult => {
-            let output = ""
-            searchResult.results.forEach((data) => {
-                output = `
-                <h2>Date</h2>
-                    <p class="date">${data.day}/${data.month}</p>
-                <h2>Name/names</h2>
-                    <p>${data.name}</p>`;   
-                }); 
-            content.innerHTML = output;  
+            if(200 && searchResult.results.length > 0){
+                let output = ""
+                searchResult.results.forEach((data) => {
+                    output = `
+                    <h2>Date (DD/MM)</h2>
+                        <p class="date">${data.day}/${data.month}</p>
+                    <h2>Name or names that has its' birthday</h2>
+                        <p class="names">${data.name}</p>`;   
+                    }); 
+                content.innerHTML = output;  
+            } else {
+                renderAlertMsg("There is no name that matched your search")
+            }
         })
 });
 
@@ -49,8 +54,8 @@ specDaySearch.addEventListener('submit', e => {
             data.data.forEach(item => {
                 const countryCodeAPI = countrySearch.value;
                 output = `
-                <h2>Name/names</h2>
-                    <p>${item.namedays[countryCodeAPI]}</p>`;   
+                <h2>Name or names that has a birthday</h2>
+                    <p class="names">${item.namedays[countryCodeAPI]}</p>`;   
                 }); 
             content.innerHTML = output;  
             console.log(data);

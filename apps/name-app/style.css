@@ -7,22 +7,24 @@
 body {
     background-color: gray;
     font-family: 'Open Sans Condensed', sans-serif;
-
 }
 
 .container {
     max-width: 800px;
-    margin-top: 12rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    margin-top: 5rem;
 }
 
 .card-body {
-    border: black solid 2px;
-    height: 320px;
+    background-color: wheat;
+    height: 330px;
+    max-width: 520px;
     border-radius: 0.5rem;
     text-align: center;
+    margin-bottom: 1.5rem;
     display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .body {
@@ -32,7 +34,6 @@ body {
 h1 {
     font-family: 'Open Sans Condensed', sans-serif;
     margin-bottom: 1rem;
-    margin-top: 1rem;
 }
 
 input {
@@ -53,16 +54,41 @@ button {
     border-radius: 0.25rem;
 }
 
-#content {
-    text-align: center;
+#formSearch {
+    margin-bottom: 1.5rem;
 }
 
-.date {
-    font-size: 5rem;
+#content {
+    text-align: center;
+    background-color: wheat;
+    border-radius: 0.5rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #content h2 {
-    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.date {
+    font-size: 3rem;
+    padding: 0;
+}
+
+.names {
+    padding-bottom: 1.5rem;
+}
+
+.alert {
+    text-align: center;
+    background-color: rgb(250, 246, 4);
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    max-width: 520px;
+    margin: auto;
 }
 
 

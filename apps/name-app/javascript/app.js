@@ -14,3 +14,7 @@ const getDate = async (countryCode, month, day) => {
 
     return data;
 };
+
+const renderAlertMsg = (msg => {
+    content.innerHTML = `<p class="alert">${msg}</p>`;
+})
