@@ -10,6 +10,9 @@ const countrySearch = document.querySelector("#countrySearch");
 const monthSearch = document.querySelector("#monthSearch");
 const daySearch = document.querySelector("#daySearch");
 
+// Getting references for our third form
+const todaysName = document.querySelector("#todaysName");
+const todaysCountry = document.querySelector("#todaysCountry");
 
 // Getting references to the empty div 
 const content = document.querySelector("#content");
@@ -23,15 +26,15 @@ formSearch.addEventListener('submit', e => {
     const country = countryEl.value;
 
     getNames(name, country)
-        .then(searchResult => {
-            if(200 && searchResult.results.length > 0){
+        .then(data => {
+            if(200 && data.results.length > 0){
                 let output = ""
-                searchResult.results.forEach((data) => {
+                data.results.forEach((item) => {
                     output = `
                     <h2>Date (DD/MM)</h2>
-                        <p class="date">${data.day}/${data.month}</p>
+                        <p class="date">${item.day}/${item.month}</p>
                     <h2>Name or names that has its' birthday</h2>
-                        <p class="names">${data.name}</p>`;   
+                        <p class="names">${item.name}</p>`;   
                     }); 
                 content.innerHTML = output;  
             } else {
@@ -58,5 +61,24 @@ specDaySearch.addEventListener('submit', e => {
                     <p class="names">${item.namedays[countryCodeAPI]}</p>`;   
                 }); 
             content.innerHTML = output;  
+        });
+});
+
+// Calling our function when submitting values
+todaysName.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const contryToday = todaysCountry.value;
+    
+    getTodaysNameDay(contryToday)
+        .then(data =>{    
+            let output = "";
+            data.data.forEach(item => {
+                const countryCodeToday = contryToday;
+                output = `
+                <h2>Following people have their name day today:</h2>
+                    <p class="names">${item.namedays[countryCodeToday]}</p>`;
+            });
+            content.innerHTML = output
         });
 });

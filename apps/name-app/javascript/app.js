@@ -17,7 +17,16 @@ const getDate = async (countryCode, month, day) => {
     return data;
 };
 
+// Rendering todays name dat
+const getTodaysNameDay = async country => {
+    const response = await fetch(`https://api.abalin.net/today?country=${country}`);
+
+    const dataResult = await response.json();
+
+    return dataResult;
+};
+
 // Rendering an alert message to the user 
-const renderAlertMsg = (msg => {
+const renderAlertMsg = msg => {
     content.innerHTML = `<p class="alert">${msg}</p>`;
-})
+}

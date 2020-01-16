@@ -17,7 +17,7 @@ body {
 
 .card-body {
     background-color: rgba(255, 255, 255, 0.76);
-    height: 330px;
+    height: 380px;
     max-width: 520px;
     border-radius: 0.5rem;
     text-align: center;
@@ -56,6 +56,10 @@ button {
 
 #formSearch {
     margin-bottom: 1.5rem;
+}
+
+#specDaySearch {
+    margin-bottom: 1.7rem;
 }
 
 #content {
