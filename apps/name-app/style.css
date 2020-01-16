@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    width: 800px;
+    max-width: 800px;
     margin-top: 15rem;
     margin-left: auto;
     margin-right: auto;
@@ -17,14 +17,18 @@ body {
 
 .card-body {
     border: black solid 2px;
+    height: 300px;
     border-radius: 0.5rem;
     text-align: center;
     display: flex;
 }
 
 .body {
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+}
+
+h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 #content {
